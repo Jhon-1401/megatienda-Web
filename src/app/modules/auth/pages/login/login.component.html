@@ -1,0 +1,19 @@
+<div class="login-card">
+  <!--<img src="./assets/images/background.png" class="login-logo" />-->
+  <h2>Iniciar Sesión</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <label>Usuario</label>
+    <input type="text" formControlName="username" />
+
+    <label>Contraseña</label>
+    <input type="password" formControlName="password" />
+
+    <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+  </form>
+
+  <p style="text-align: center; margin-top: 15px">
+    ¿No tienes cuenta?
+    <a routerLink="/auth/register">Regístrate</a>
+  </p>
+</div>

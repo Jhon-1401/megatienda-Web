@@ -1,0 +1,77 @@
+<div class="checkout-page">
+
+  <!-- SI NO ESTA CONFIRMADO -->
+  <div *ngIf="!orderConfirmed; else orderSuccess" class="checkout-content">
+
+    <div class="checkout-left">
+      <h2>Dirección de envío</h2>
+
+      <form #form="ngForm">
+        <input type="text" placeholder="Nombre completo"
+          [(ngModel)]="customer.name" name="name" required>
+
+        <input type="text" placeholder="Teléfono"
+          [(ngModel)]="customer.phone" name="phone" required>
+
+        <input type="text" placeholder="Dirección"
+          [(ngModel)]="customer.address" name="address" required>
+
+        <input type="text" placeholder="Ciudad"
+          [(ngModel)]="customer.city" name="city" required>
+      </form>
+    </div>
+
+    <div class="checkout-right">
+      <div class="summary-card">
+        <h3>Resumen del pedido</h3>
+
+        <div *ngFor="let item of cartItems" class="summary-item">
+          {{ item.name }} x{{ item.quantity }}
+          <span>${{ item.price * item.quantity | number }}</span>
+        </div>
+
+        <hr>
+
+        <h4>Total: ${{ subtotal | number }}</h4>
+
+        <button
+          class="confirm"
+          (click)="confirmOrder()"
+          [disabled]="!form.valid">
+          Confirmar pedido (Contra entrega)
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SI YA ESTA CONFIRMADO -->
+  <ng-template #orderSuccess>
+
+    <div class="success-container">
+      <h2>Pedido confirmado</h2>
+
+      <p><strong>Nombre:</strong> {{ customer.name }}</p>
+      <p><strong>Teléfono:</strong> {{ customer.phone }}</p>
+      <p><strong>Dirección:</strong> {{ customer.address }}, {{ customer.city }}</p>
+
+      <hr>
+
+      <h3>Resumen</h3>
+
+      <div *ngFor="let item of cartItems" class="summary-item">
+        {{ item.name }} x{{ item.quantity }}
+      </div>
+
+      <h4>Total a pagar contra entrega: ${{ subtotal | number }}</h4>
+
+      <p class="info">
+        El pago se realizará al momento de la entrega.
+      </p>
+
+    </div>
+
+  </ng-template>
+
+</div>

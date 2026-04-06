@@ -1,0 +1,89 @@
+<div class="flex h-screen">
+  <!-- Filtros (20%) -->
+  <div class="w-20rem md:w-20rem flex-shrink-0 p-2 border-right-1 surface-border" style="border-right-width: 0px !important">
+    <!-- contenido de filtros -->
+
+      <div class="filters-container p-3 border-right-1 surface-border" style="border-right-width: 0px !important">
+          <!-- Filtro por categoría -->
+          <div class="mb-3">
+            <div class="flex flex-column gap-2 w-full md:w-20rem" style="max-width: 17rem;">
+              <label for="category"  class="font-semibold text-sm">
+                Categoría
+              </label>
+
+              <p-select
+                inputId="category"
+                [options]="categoriesOptions"
+                [(ngModel)]="selectedCategory"
+                optionLabel="label"
+                optionValue="value"
+                placeholder="Todas"
+                class="w-full">
+              </p-select>
+            </div>
+          </div>
+
+          <!-- Filtro por precio mínimo -->
+          <div class="mb-3">
+            <div class="flex flex-column gap-2 w-full md:w-20rem" style="max-width: 17rem;">
+              <label for="category"  class="font-semibold text-sm">
+                Precio Mínimo
+              </label>
+
+              <p-select
+                inputId="category"
+                [options]="rangeMinPrice"
+                [(ngModel)]="minPrice"
+                optionLabel="label"
+                optionValue="value"
+                placeholder="Ninguno"
+                class="w-full">
+              </p-select>
+            </div>
+          </div>
+
+          <!-- Filtro por precio máximo -->
+          <div class="mb-3">
+            <div class="flex flex-column gap-2 w-full md:w-20rem" style="max-width: 17rem;">
+              <label for="category"  class="font-semibold text-sm">
+                Precio máximo
+              </label>
+
+              <p-select
+                inputId="category"
+                [options]="rangeMaxPrice"
+                [(ngModel)]="maxPrice"
+                optionLabel="label"
+                optionValue="value"
+                placeholder="Ninguno"
+                class="w-full">
+              </p-select>
+            </div>
+          </div>
+
+          <!-- Botón aplicar -->
+          <div class="mt-4">
+              <button style="color: #ffffff !important;font-weight: bold;font-size: 16px; " (click)="applyFilters()" class="w-full p-2 border-round bg-primary text-white">
+                  Aplicar filtros
+              </button>
+          </div>
+        <div class="mt-4">
+          <p-button label="Limpiar" icon="pi pi-eraser" styleClass="w-full p-button-outlined" (click)="clearFilters()"></p-button>
+        </div>
+      </div>
+
+
+
+  </div>
+
+  <!-- Productos (scrollable) -->
+  <div class="flex-1 p-2 overflow-y-auto">
+    <div class="grid">
+      <div class="col-12 sm:col-6 md:col-4 lg:col-3"
+           style="margin-top: 2px; margin-right: 2px"
+           *ngFor="let product of listProducts">
+        <app-product-view [product]="product"></app-product-view>
+      </div>
+    </div>
+  </div>
+</div>

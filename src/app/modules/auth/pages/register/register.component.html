@@ -1,0 +1,31 @@
+<div class="register-container">
+  <div class="login-card">
+    <h2>Crear Cuenta</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <label>Nombre Completo</label>
+      <input type="text" formControlName="fullName" />
+
+      <label>Email</label>
+      <input type="email" formControlName="email" />
+
+      <label>Usuario</label>
+      <input type="text" formControlName="username" />
+
+      <label>Contraseña</label>
+      <input type="password" formControlName="password" />
+
+      <label>Confirmar Contraseña</label>
+      <input type="password" formControlName="confirmPassword" />
+
+      <button type="submit" [disabled]="registerForm.invalid">
+        Registrarse
+      </button>
+    </form>
+
+    <p class="login-link">
+      ¿Ya tienes cuenta?
+      <a routerLink="/auth/login">Iniciar sesión</a>
+    </p>
+  </div>
+</div>

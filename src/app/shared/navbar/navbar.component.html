@@ -1,0 +1,84 @@
+<nav class="navbar">
+  <!-- Logo -->
+  <div class="logo" routerLink="/catalogo">MegaTienda</div>
+
+  <!-- Buscador -->
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Buscar productos..."
+      [(ngModel)]="searchText"
+      (input)="search()"
+    />
+    <button (click)="search()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        width="20"
+        height="20"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m21 21-4.35-4.35M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Acciones derecha -->
+  <div class="nav-actions">
+    <!-- Si NO está autenticado -->
+    <button
+      *ngIf="!authService.isAuthenticated()"
+      routerLink="/auth/login"
+      class="login-btn"
+    >
+      Iniciar sesión
+    </button>
+
+    <!-- Si está autenticado -->
+    <div class="user-menu" *ngIf="authService.isAuthenticated()">
+      <span class="user-name" (click)="toggleDropdown()">
+        {{ authService.getCurrentUser()?.username }} ▼
+      </span>
+
+      <div class="dropdown" *ngIf="dropdownOpen">
+        <!-- Solo ADMIN -->
+        <a *ngIf="isAdmin()" routerLink="/admin" class="dropdown-item">
+          Consola Admin
+        </a>
+
+        <!-- Logout -->
+        <button (click)="logout()" class="dropdown-item logout-btn">
+          Cerrar sesión
+        </button>
+      </div>
+    </div>
+
+    <!-- Carrito -->
+    <a routerLink="/cart" class="cart">
+      <svg
+        class="cart-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M2.25 3h1.386c.51 0 .955.343 1.087.834L5.34 6.75m0 0h13.41l-1.5 8.25H6.75M5.34 6.75 6.75 15m0 0a2.25 2.25 0 1 0 4.5 0m-4.5 0h4.5"
+        />
+      </svg>
+
+      <span class="cart-badge">
+        {{ cartCount }}
+      </span>
+    </a>
+  </div>
+</nav>

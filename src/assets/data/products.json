@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Camiseta Deportiva Nike",
+    "description": "Camiseta transpirable para entrenamiento",
+    "price": 120000,
+    "brand": "Nike",
+    "category": "Deportivo",
+    "stock": 15,
+    "imageUrl": "assets/images/products/camiseta-nike.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Tenis Adidas Running",
+    "description": "Tenis ligeros para correr",
+    "price": 350000,
+    "brand": "Adidas",
+    "category": "Deportivo",
+    "stock": 10,
+    "imageUrl": "assets/images/products/tenis-adidas.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Reloj Casio Clásico",
+    "description": "Reloj resistente al agua",
+    "price": 180000,
+    "brand": "Casio",
+    "category": "Accesorios",
+    "stock": 20,
+    "imageUrl": "assets/images/products/reloj-casio.jpg"
+  }
+]

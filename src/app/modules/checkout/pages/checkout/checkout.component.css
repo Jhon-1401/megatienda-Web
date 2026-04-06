@@ -1,0 +1,71 @@
+.checkout-page {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  background: #f3f3f3;
+}
+
+.checkout-left {
+  flex: 3;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.checkout-left input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.checkout-right {
+  flex: 1;
+}
+
+.summary-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  position: sticky;
+  top: 100px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.confirm {
+  width: 100%;
+  background: #f0a500;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.confirm:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+.success-container {
+  background: white;
+  padding: 3rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.success-container h2 {
+  color: green;
+  margin-bottom: 1rem;
+}
+
+.success-container .info {
+  margin-top: 1rem;
+  color: #555;
+}

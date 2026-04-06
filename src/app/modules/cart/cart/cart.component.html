@@ -1,0 +1,50 @@
+
+<div class="cart-page">
+  <div class="cart-left">
+    <h2>Carrito de compras</h2>
+
+    <div *ngIf="cartItems.length === 0" class="empty">
+      Tu carrito está vacío.
+    </div>
+
+    <div *ngFor="let item of cartItems; trackBy: trackByProduct" class="cart-item">
+
+      <div class="item-image">
+        <img
+          [src]="item.imageUrl || 'assets/images/visores.png'"
+          alt="producto"
+        />
+      </div>
+
+      <div class="item-details">
+        <h4>{{ item.name }}</h4>
+        <p class="price">${{ item.price | number }}</p>
+
+        <div class="quantity">
+          <button (click)="decrease(item)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="increase(item)">+</button>
+        </div>
+
+        <button class="remove" (click)="remove(item.productId)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="cart-right">
+    <div class="summary-card">
+      <h3>Subtotal</h3>
+      <p class="subtotal">${{ subtotal | number }}</p>
+
+      <button
+        class="checkout"
+        [routerLink]="['/checkout']"
+        [disabled]="subtotal === 0">
+        Proceder al pago
+      </button>
+    </div>
+  </div>
+</div>
+
+
