@@ -1,11 +1,11 @@
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import {provideHttpClient} from '@angular/common/http';
-import {provideAnimations} from '@angular/platform-browser/animations';
-import {providePrimeNG} from 'primeng/config';
+import { provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { providePrimeNG } from 'primeng/config';
 import Lara from '@primeuix/themes/lara';
-import Nora from '@primeuix/themes/Nora';
+import Nora from '@primeuix/themes/nora';
 
 
 export const appConfig: ApplicationConfig = {
@@ -21,6 +21,6 @@ export const appConfig: ApplicationConfig = {
         }
       }
     })
-// 👈 ESTA LÍNEA SOLUCIONA TODO
+    // 👈 ESTA LÍNEA SOLUCIONA TODO
   ]
 };
